@@ -1,11 +1,10 @@
 <?php
 
-$paragraph = $_GET['paragraph'];
-$censored_word = $_GET['censored_word'];
-$asterisks = '***';
+$paragraph = trim($_GET['paragraph']);
+$censored_word = trim($_GET['censored_word']);
 $paragraph_length = strlen($paragraph);
-
-// echo 'Il testo del paragrafo è '.$paragraph.' mentre la parola censurata è '.$censored_word;
+$censored_paragraph = str_replace($censored_word, '***', $paragraph);
+$censored_paragraph_length = strlen($censored_paragraph);
 
 ?>
 
@@ -28,6 +27,9 @@ $paragraph_length = strlen($paragraph);
         <div class="container">
             <p>Il testo originale che i <i>poteri forti</i> vogliono censurare è: <b><?= $paragraph ?></b></p>
             <p>La lunghezza di questo testo è pari a: <b><?= $paragraph_length ?> caratteri</b></p>
+            <hr>
+            <p>Il paragrafo censurato dai poteri forti è: <b><?= $censored_paragraph ?></b></p>
+            <p>La lunghezza del testo rimaneggiato da Bill Gates è pari a: <b><?= $censored_paragraph_length ?> caratteri</b></p>
         </div>
     </main>
     <footer class="text-center">
